@@ -1,11 +1,10 @@
-#sbs-git:slp/pkgs/e/edje edje 1.1.0+svn.69011slp2+build03 96cd9783918ce594c786d12a5107be27aec4d34b
 Name:       ise-engine-anthy
-Summary:    Japanese input method
+Summary:    Anthy (Japanese) Input Method Engine for ISF
 Version:    0.0.0125
 Release:    1
 Group:      TO_BE/FILLED_IN
-License:    BSD
-URL:        http://www.enlightenment.org/
+License:    LGPL v2.1 or later
+URL:        http://sourceforge.jp/projects/scim-imengine/
 Source0:    %{name}-%{version}.tar.gz
 BuildRequires:  prelink
 BuildRequires:  gettext-tools
@@ -15,7 +14,7 @@ BuildRequires:  pkgconfig(anthy)
 
 %description
 ISF is an input service framework for TIZEN.
-Ise-engine-anthy is ISF IMEngine module for Japanese input method base.It converts Hiragana text to Kana Kanji mixed text.
+ise-engine-anthy is ISF IMEngine module for Japanese input method base.It converts Hiragana text to Kana Kanji mixed text.
 
 
 
