@@ -1,7 +1,7 @@
 Name:       ise-engine-anthy
 Summary:    Anthy (Japanese) Input Method Engine for ISF
 Version:    0.0.0125
-Release:    2
+Release:    3
 Group:      TO_BE/FILLED_IN
 License:    LGPL v2.1 or later
 URL:        http://sourceforge.jp/projects/scim-imengine/
@@ -10,7 +10,7 @@ BuildRequires:  prelink
 BuildRequires:  gettext-tools
 BuildRequires:  pkgconfig(isf)
 BuildRequires:  pkgconfig(anthy)
-
+BuildRequires:  pkgconfig(ecore)
 
 %description
 ISF is an input service framework for TIZEN.

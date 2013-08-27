@@ -110,6 +110,7 @@ public:
 
     virtual void reload_config                (const ConfigPointer &config);
     virtual void flush ();
+    virtual void set_layout                   (unsigned int layout);
 
 public:
     /* actions */
@@ -272,6 +273,8 @@ private:
     /* timeout */
     uint32                m_timeout_id_seq;
     TimeoutClosures       m_closures;
+
+    unsigned int          m_layout;
 };
 #endif /* __SCIM_ANTHY_IMENGINE_H__ */
 /*

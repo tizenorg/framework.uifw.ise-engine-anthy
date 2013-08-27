@@ -37,6 +37,7 @@
 #include <sys/types.h>
 
 #include <scim.h>
+#include <Ecore_IMF.h>
 #include "scim_anthy_factory.h"
 #include "scim_anthy_imengine.h"
 #include "scim_anthy_prefs.h"
@@ -102,7 +103,8 @@ AnthyInstance::AnthyInstance (AnthyFactory   *factory,
       m_prev_input_mode        (SCIM_ANTHY_MODE_HIRAGANA),
       m_conv_mode              (SCIM_ANTHY_CONVERSION_MULTI_SEGMENT),
       m_helper_started         (false),
-      m_timeout_id_seq         (0)
+      m_timeout_id_seq         (0),
+      m_layout                 (ECORE_IMF_INPUT_PANEL_LAYOUT_NORMAL)
 {
     SCIM_DEBUG_IMENGINE(1) << "Create Anthy Instance : ";
 
@@ -279,6 +281,17 @@ bool
 AnthyInstance::process_key_event (const KeyEvent& key)
 {
     SCIM_DEBUG_IMENGINE(2) << "process_key_event.\n";
+
+    switch (m_layout) {
+        case ECORE_IMF_INPUT_PANEL_LAYOUT_PHONENUMBER:
+        case ECORE_IMF_INPUT_PANEL_LAYOUT_IP:
+        case ECORE_IMF_INPUT_PANEL_LAYOUT_MONTH:
+        case ECORE_IMF_INPUT_PANEL_LAYOUT_NUMBERONLY:
+        case ECORE_IMF_INPUT_PANEL_LAYOUT_DATETIME:
+            return false;
+        default:
+            break;
+    }
 
     // FIXME!
     // for NICOLA thumb shift key
@@ -478,6 +491,12 @@ AnthyInstance::focus_out ()
     send.put_command (SCIM_TRANS_CMD_REQUEST);
     send.put_command (SCIM_TRANS_CMD_FOCUS_OUT);
     send_helper_event (String (SCIM_ANTHY_HELPER_UUID), send);
+}
+
+void
+AnthyInstance::set_layout (unsigned int layout)
+{
+    m_layout = layout;
 }
 
 void
