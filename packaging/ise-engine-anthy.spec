@@ -29,11 +29,14 @@ make %{?jobs:-j%jobs}
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}%{_datadir}/license
+cp COPYING %{buildroot}%{_datadir}/license/%{name}
 %make_install
 
 
 %files
 %defattr(-,root,root,-)
+%{_datadir}/license/%{name}
 %{_datadir}/scim/icons/*
 %{_datadir}/locale/*
 %{_datadir}/scim/Anthy/*
