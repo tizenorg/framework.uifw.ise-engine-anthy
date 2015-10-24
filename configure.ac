@@ -1,16 +1,16 @@
 # Process this file with autoconf to produce a configure script.
 AC_PREREQ(2.59)
 # base on scim-anthy-1.2.7
-AC_INIT(ise-engine-anthy, 0.0.0125, ashie@homa.ne.jp)
+AC_INIT(ise-engine-anthy, 1.0.0, ashie@homa.ne.jp)
 AC_CONFIG_SRCDIR([configure.ac])
 
 # Save this value here, since automake will set cflags and cxxflags later
 cflags_set=${CFLAGS+set}
 cppflags_set=${CPPFLAGS+set}
 
-SCIM_ANTHY_MAJOR_VERSION=0
+SCIM_ANTHY_MAJOR_VERSION=1
 SCIM_ANTHY_MINOR_VERSION=0
-SCIM_ANTHY_MICRO_VERSION=0125
+SCIM_ANTHY_MICRO_VERSION=0
 
 SCIM_ANTHY_VERSION=$SCIM_ANTHY_MAJOR_VERSION.$SCIM_ANTHY_MINOR_VERSION.$SCIM_ANTHY_MICRO_VERSION
 
@@ -51,7 +51,7 @@ SCIM_VERSION=1.2.0
 
 PKG_CHECK_MODULES(SCIM,[isf >= $SCIM_VERSION])
 
-PKG_CHECK_MODULES(ECORE,[ecore])
+PKG_CHECK_MODULES(ECORE_IMF,[ecore-imf])
 
 AC_SUBST(SCIM_VERSION)
 
@@ -123,6 +123,7 @@ AC_SUBST(SCIM_DEBUG_FLAGS)
 
 SCIM_DATADIR=`$PKG_CONFIG --variable=scimdatadir scim`
 SCIM_ICONDIR=`$PKG_CONFIG --variable=icondir scim`
+SCIM_PKGDIR=`$PKG_CONFIG --variable=pkgdir scim`
 SCIM_MODULEDIR=`$PKG_CONFIG --variable=moduledir scim`
 
 if test "x$SCIM_DATADIR" = "x"; then
@@ -133,6 +134,10 @@ if test "x$SCIM_ICONDIR" = "x"; then
   SCIM_ICONDIR=${datadir}/scim/icons
 fi
 
+if test "x$SCIM_PKGDIR" = "x"; then
+  SCIM_PKGDIR=${datadir}/packages
+fi
+
 if test "x$SCIM_MODULEDIR" = "x"; then
   SCIM_MODULEDIR=${libdir}/scim-1.0
 fi
@@ -141,6 +146,7 @@ SCIM_ANTHY_DATADIR=${SCIM_DATADIR}/Anthy
 
 AC_SUBST(SCIM_DATADIR)
 AC_SUBST(SCIM_ICONDIR)
+AC_SUBST(SCIM_PKGDIR)
 AC_SUBST(SCIM_MODULEDIR)
 AC_SUBST(SCIM_ANTHY_DATADIR)
         

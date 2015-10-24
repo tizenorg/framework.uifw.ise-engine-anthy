@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" package="ise-engine-anthy" type="rpm" version="1.0.0" install-location="internal-only">
+<author/>
+<description/>
+<label>Japanese keyboard</label>
+<icon/>
+<ui-application appid="org.tizen.ise-engine-anthy" exec="/usr/lib/scim-1.0/scim-launcher" nodisplay="true" taskmanage="false" multiple="false" type="capp" hw-acceleration="use-system-setting" mainapp="true">
+    <category name="http://tizen.org/category/ime"/>
+    <label>Japanese keyboard</label>
+    <label xml:lang="en-gb">Japanese keyboard</label>
+    <icon/>
+</ui-application>
+</manifest>

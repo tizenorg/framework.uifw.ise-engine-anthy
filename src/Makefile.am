@@ -71,8 +71,8 @@ ise_engine_anthy_la_SOURCES = \
 	scim_anthy_style_file.cpp \
 	scim_anthy_utils.cpp
 
-ise_engine_anthy_la_CFLAGS   = @SCIM_CFLAGS@ @SCIM_DEBUG_FLAGS@ @ANTHY_CFLAGS@ @ECORE_CFLAGS@
-ise_engine_anthy_la_CXXFLAGS = @SCIM_CFLAGS@ @SCIM_DEBUG_FLAGS@ @ANTHY_CFLAGS@ @ECORE_CFLAGS@
+ise_engine_anthy_la_CFLAGS   = @SCIM_CFLAGS@ @SCIM_DEBUG_FLAGS@ @ANTHY_CFLAGS@ @ECORE_IMF_CFLAGS@
+ise_engine_anthy_la_CXXFLAGS = @SCIM_CFLAGS@ @SCIM_DEBUG_FLAGS@ @ANTHY_CFLAGS@ @ECORE_IMF_CFLAGS@
 
 ise_engine_anthy_la_LDFLAGS = \
 	-avoid-version \
@@ -81,7 +81,7 @@ ise_engine_anthy_la_LDFLAGS = \
 	@LIBTOOL_EXPORT_OPTIONS@ \
 	@SCIM_LIBS@ \
 	@ANTHY_LIBS@ \
-	@ECORE_LIBS@
+	@ECORE_IMF_LIBS@
 
 
 #

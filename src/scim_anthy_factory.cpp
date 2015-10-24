@@ -89,7 +89,7 @@ extern "C" {
         try {
             factory = new AnthyFactory (
                 String ("ja_JP"),
-                String ("065d7b20-dda2-47fb-8f94-3306d9a25e56"),
+                String ("org.tizen.ise-engine-anthy"),
                 _scim_config);
         } catch (...) {
             delete factory;
